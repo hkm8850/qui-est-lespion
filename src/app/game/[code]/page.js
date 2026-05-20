@@ -228,7 +228,7 @@ export default function GamePage() {
             <div>
               <h1 style={styles.title}>En attente des joueurs</h1>
               <p style={styles.description}>
-                Partagez le code de partie. Il faut au moins deux joueurs pour lancer.
+                Partagez le code de partie. Il faut au moins trois joueurs pour lancer.
               </p>
             </div>
             <div style={styles.waitingActions}>
@@ -237,7 +237,7 @@ export default function GamePage() {
                 <button
                   className="btn btn-primary btn-lg"
                   onClick={handleStart}
-                  disabled={actionLoading || alivePlayers.length < 2}
+                  disabled={actionLoading || alivePlayers.length < 3}
                 >
                   {actionLoading ? 'Lancement...' : 'Lancer'}
                 </button>
