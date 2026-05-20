@@ -210,12 +210,12 @@ export default function GamePage() {
             <span style={styles.kicker}>Partie</span>
             <button type="button" onClick={copyCode} style={styles.codeButton} title="Copier le code">
               {code}
-              <span style={styles.copyText}>{copied ? 'Copie' : 'Copier'}</span>
+              <span style={styles.copyText}>{copied ? 'Copié' : 'Copier'}</span>
             </button>
           </div>
           <div style={styles.statusStack}>
             <span className={`badge ${isFinished ? 'badge-spy' : isWaiting ? 'badge-waiting' : 'badge-playing'}`}>
-              {isFinished ? 'Terminee' : isWaiting ? 'En attente' : `Manche ${gameState?.roundNumber || 1}`}
+              {isFinished ? 'Terminée' : isWaiting ? 'En attente' : `Manche ${gameState?.roundNumber || 1}`}
             </span>
             {phase && !isFinished && <span style={styles.phase}>{phase === 'VOTING' ? 'Vote' : 'Description'}</span>}
           </div>
@@ -232,7 +232,7 @@ export default function GamePage() {
               </p>
             </div>
             <div style={styles.waitingActions}>
-              {host && <span style={styles.hostInfo}>Hote: {host}</span>}
+              {host && <span style={styles.hostInfo}>Hôte: {host}</span>}
               {isHost ? (
                 <button
                   className="btn btn-primary btn-lg"
@@ -242,21 +242,21 @@ export default function GamePage() {
                   {actionLoading ? 'Lancement...' : 'Lancer'}
                 </button>
               ) : (
-                <p style={styles.waitingText}>Seul l hote peut lancer la partie.</p>
+                <p style={styles.waitingText}>Seul l’hôte peut lancer la partie.</p>
               )}
             </div>
           </section>
         ) : (
           <section style={styles.playGrid}>
             <div className="glass-card animate-fade-in" style={styles.roleCard}>
-              <span style={styles.cardLabel}>Votre role</span>
+              <span style={styles.cardLabel}>Votre rôle</span>
               <h1 style={{ ...styles.roleTitle, color: roleInfo?.role === 'SPY' ? '#f87171' : '#34d399' }}>
-                {roleInfo?.role === 'SPY' ? 'Espion' : roleInfo?.role === 'CIVILIAN' ? 'Civil' : 'Cache'}
+                {roleInfo?.role === 'SPY' ? 'Espion' : roleInfo?.role === 'CIVILIAN' ? 'Civil' : 'Caché'}
               </h1>
               <p style={styles.word}>{roleInfo?.word || 'Mot indisponible'}</p>
               <p style={styles.description}>
                 {roleInfo?.role === 'SPY'
-                  ? 'Votre mot est different. Restez credible.'
+                  ? 'Votre mot est différent. Restez crédible.'
                   : 'Votre mot est commun aux autres civils.'}
               </p>
             </div>
@@ -287,15 +287,15 @@ export default function GamePage() {
               {gameState.winner === 'CIVILIANS' ? 'Victoire des civils' : 'Victoire des espions'}
             </h2>
             {gameState.eliminatedPlayer && (
-              <p style={styles.description}>Dernier joueur elimine: {gameState.eliminatedPlayer}</p>
+              <p style={styles.description}>Dernier joueur éliminé : {gameState.eliminatedPlayer}</p>
             )}
           </section>
         )}
 
         {isCurrentPlayerEliminated && !isFinished && (
           <section className="glass-card animate-fade-in" style={styles.eliminatedPanel}>
-            <h2 style={styles.sectionTitle}>Vous etes elimine</h2>
-            <p style={styles.description}>Vous pouvez continuer a suivre la partie et discuter dans le chat.</p>
+            <h2 style={styles.sectionTitle}>Vous êtes éliminé</h2>
+            <p style={styles.description}>Vous pouvez continuer à suivre la partie et discuter dans le chat.</p>
           </section>
         )}
 
@@ -304,9 +304,9 @@ export default function GamePage() {
             <div style={styles.sectionHeader}>
               <div>
                 <h2 style={styles.sectionTitle}>Donner un indice</h2>
-                <p style={styles.description}>Un seul indice par manche. Quand tous les joueurs vivants ont joue, le vote commence.</p>
+                <p style={styles.description}>Un seul indice par manche. Quand tous les joueurs vivants ont joué, le vote commence.</p>
               </div>
-              {hasSentClue && <span className="badge badge-civilian">Envoye</span>}
+              {hasSentClue && <span className="badge badge-civilian">Envoyé</span>}
             </div>
 
             <form onSubmit={submitClue} style={styles.clueForm}>
@@ -342,7 +342,7 @@ export default function GamePage() {
             <div style={styles.sectionHeader}>
               <div>
                 <h2 style={styles.sectionTitle}>Vote</h2>
-                <p style={styles.description}>Selectionnez le joueur que vous pensez etre l espion.</p>
+                <p style={styles.description}>Sélectionnez le joueur que vous pensez être l’espion.</p>
               </div>
               <button className="btn btn-danger" onClick={submitVote} disabled={actionLoading || !selectedTarget}>
                 {selectedTarget ? `Voter ${selectedTarget}` : 'Choisir'}
@@ -378,7 +378,7 @@ export default function GamePage() {
                   <span style={styles.avatar}>{player.name.charAt(0).toUpperCase()}</span>
                   <div style={styles.playerText}>
                     <strong>{player.name}{player.isMe ? ' (vous)' : ''}</strong>
-                    <small>{player.isHost ? 'Hote' : player.alive ? 'En jeu' : 'Elimine'}</small>
+                    <small>{player.isHost ? 'Hôte' : player.alive ? 'En jeu' : 'Éliminé'}</small>
                   </div>
                 </div>
               ))}

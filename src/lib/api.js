@@ -42,7 +42,7 @@ async function request(endpoint, options = {}) {
     }
 
     if (res.status === 401 || res.status === 403) {
-      throw new Error('Acces refuse. Verifiez que vous etes connecte avec le bon compte.');
+      throw new Error('Accès refusé. Vérifiez que vous êtes connecté avec le bon compte.');
     }
 
     throw new Error(`Erreur ${res.status}`);

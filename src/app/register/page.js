@@ -37,14 +37,14 @@ export default function RegisterPage() {
           <div style={styles.header}>
             <span style={styles.icon}>+</span>
             <h1 style={styles.title}>Inscription</h1>
-            <p style={styles.subtitle}>Creez un pseudo pour entrer dans une partie.</p>
+            <p style={styles.subtitle}>Créez un pseudo pour entrer dans une partie.</p>
           </div>
 
           {error && <div className="error-message">{error}</div>}
 
           <form onSubmit={handleSubmit} style={styles.form}>
             <div className="input-group">
-              <label htmlFor="username">Nom d utilisateur</label>
+              <label htmlFor="username">Nom d’utilisateur</label>
               <input
                 id="username"
                 className="input"
@@ -77,12 +77,12 @@ export default function RegisterPage() {
               disabled={loading}
               style={{ width: '100%', marginTop: '8px' }}
             >
-              {loading ? 'Creation...' : 'Creer mon compte'}
+              {loading ? 'Création...' : 'Créer mon compte'}
             </button>
           </form>
 
           <p style={styles.footer}>
-            Deja un compte ?{' '}
+            Déjà un compte ?{' '}
             <button type="button" style={styles.link} onClick={() => router.push('/login')}>
               Se connecter
             </button>

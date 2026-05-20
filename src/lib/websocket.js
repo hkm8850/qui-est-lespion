@@ -1,7 +1,23 @@
 import { Client } from '@stomp/stompjs';
 import SockJS from 'sockjs-client';
 
-const WS_BASE = process.env.NEXT_PUBLIC_WS_URL || 'http://localhost:8080/ws-chat';
+function getWebSocketBase() {
+  if (process.env.NEXT_PUBLIC_WS_URL) {
+    return process.env.NEXT_PUBLIC_WS_URL;
+  }
+
+  if (process.env.NEXT_PUBLIC_API_URL) {
+    try {
+      const url = new URL(process.env.NEXT_PUBLIC_API_URL);
+      url.pathname = url.pathname.replace(/\/api\/?$/, '/ws-chat');
+      return url.toString();
+    } catch {
+      return 'http://localhost:8080/ws-chat';
+    }
+  }
+
+  return 'http://localhost:8080/ws-chat';
+}
 
 let stompClient = null;
 
@@ -11,7 +27,7 @@ export function connectWebSocket(gameCode, { onGameState, onChatMessage }) {
   }
 
   stompClient = new Client({
-    webSocketFactory: () => new SockJS(WS_BASE),
+    webSocketFactory: () => new SockJS(getWebSocketBase()),
     reconnectDelay: 4000,
     heartbeatIncoming: 4000,
     heartbeatOutgoing: 4000,
@@ -37,7 +53,7 @@ export function connectWebSocket(gameCode, { onGameState, onChatMessage }) {
 
 export function sendChatMessage(gameCode, sender, content) {
   if (!stompClient?.connected) {
-    throw new Error('Le chat n est pas encore connecte.');
+    throw new Error('Le chat n’est pas encore connecté.');
   }
 
   stompClient.publish({

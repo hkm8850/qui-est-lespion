@@ -31,7 +31,7 @@ export default function Navbar() {
           onClick={() => router.push(isLoggedIn() ? '/lobby' : '/')}
         >
           <span style={styles.logoMark}>?</span>
-          <span style={styles.logoText}>Qui est l Espion</span>
+          <span style={styles.logoText}>Qui est l’Espion</span>
         </button>
 
         <div style={styles.right}>
@@ -39,7 +39,7 @@ export default function Navbar() {
             <>
               <span style={styles.username}>{user.username}</span>
               <button className="btn btn-secondary btn-sm" onClick={handleLogout}>
-                Deconnexion
+                Déconnexion
               </button>
             </>
           ) : (
@@ -48,7 +48,7 @@ export default function Navbar() {
                 Connexion
               </button>
               <button className="btn btn-primary btn-sm" onClick={() => router.push('/register')}>
-                S inscrire
+                S’inscrire
               </button>
             </>
           )}

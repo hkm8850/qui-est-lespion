@@ -78,7 +78,7 @@ export default function LobbyPage() {
           router.push(`/game/${code}`);
           return;
         } catch {
-          setError('Cette partie a deja commence.');
+          setError('Cette partie a déjà commencé.');
         }
       } else {
         setError(message);
@@ -94,8 +94,8 @@ export default function LobbyPage() {
       <main style={styles.main}>
         <header style={styles.header} className="animate-fade-in">
           <span style={styles.kicker}>Salon</span>
-          <h1 style={styles.pageTitle}>Preparez une partie</h1>
-          <p style={styles.lead}>Creez un code, partagez-le, puis lancez la partie quand tout le monde est arrive.</p>
+          <h1 style={styles.pageTitle}>Préparez une partie</h1>
+          <p style={styles.lead}>Créez un code, partagez-le, puis lancez la partie quand tout le monde est arrivé.</p>
         </header>
 
         {error && <div className="error-message" style={styles.error}>{error}</div>}
@@ -103,17 +103,17 @@ export default function LobbyPage() {
         <section style={styles.grid}>
           <div className="glass-card animate-fade-in" style={styles.card}>
             <div style={styles.cardIcon}>+</div>
-            <h2 style={styles.cardTitle}>Creer une partie</h2>
-            <p style={styles.cardDesc}>Le backend genere un code a six lettres et vous place comme hote.</p>
+            <h2 style={styles.cardTitle}>Créer une partie</h2>
+            <p style={styles.cardDesc}>Le backend génère un code à six lettres et vous place comme hôte.</p>
             <button className="btn btn-primary" onClick={handleCreate} disabled={loading} style={styles.fullButton}>
-              {loading ? 'Creation...' : 'Creer'}
+              {loading ? 'Création...' : 'Créer'}
             </button>
           </div>
 
           <div className="glass-card animate-fade-in" style={{ ...styles.card, animationDelay: '0.08s' }}>
             <div style={{ ...styles.cardIcon, background: '#22d3ee' }}>#</div>
             <h2 style={styles.cardTitle}>Rejoindre une partie</h2>
-            <p style={styles.cardDesc}>Entrez le code donne par l hote pour rejoindre la table.</p>
+            <p style={styles.cardDesc}>Entrez le code donné par l’hôte pour rejoindre la table.</p>
             <form
               onSubmit={(e) => {
                 e.preventDefault();
@@ -156,7 +156,7 @@ export default function LobbyPage() {
                   <div style={styles.gameInfo}>
                     <div style={styles.gameCode}>{game.code}</div>
                     <div style={styles.gameMeta}>
-                      <span>Hote: {game.host}</span>
+                      <span>Hôte: {game.host}</span>
                       <span>{game.players} joueur{game.players > 1 ? 's' : ''}</span>
                     </div>
                   </div>

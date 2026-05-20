@@ -83,7 +83,7 @@ export default function GameChat({ gameCode, messages, username }) {
         <input
           type="text"
           className="input"
-          placeholder="Ecrire un message..."
+          placeholder="Écrire un message..."
           value={input}
           onChange={(e) => setInput(e.target.value)}
           maxLength={280}

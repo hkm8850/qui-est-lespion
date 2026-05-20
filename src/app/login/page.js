@@ -44,7 +44,7 @@ export default function LoginPage() {
 
           <form onSubmit={handleSubmit} style={styles.form}>
             <div className="input-group">
-              <label htmlFor="username">Nom d utilisateur</label>
+              <label htmlFor="username">Nom d’utilisateur</label>
               <input
                 id="username"
                 className="input"
@@ -82,7 +82,7 @@ export default function LoginPage() {
           <p style={styles.footer}>
             Pas encore de compte ?{' '}
             <button type="button" style={styles.link} onClick={() => router.push('/register')}>
-              S inscrire
+              S’inscrire
             </button>
           </p>
         </div>

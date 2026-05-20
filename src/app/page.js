@@ -11,10 +11,10 @@ export default function Home() {
       <Navbar />
       <main style={styles.main}>
         <section style={styles.hero} className="animate-fade-in">
-          <div style={styles.kicker}>Jeu de deduction sociale</div>
-          <h1 style={styles.title}>Qui est l Espion ?</h1>
+          <div style={styles.kicker}>Jeu de déduction sociale</div>
+          <h1 style={styles.title}>Qui est l’Espion&nbsp;?</h1>
           <p style={styles.subtitle}>
-            Un groupe partage le meme mot. Les espions recoivent un mot different et doivent se fondre dans la discussion.
+            Un groupe partage le même mot. Les espions reçoivent un mot différent et doivent se fondre dans la discussion.
           </p>
 
           <div style={styles.buttons}>
@@ -29,10 +29,10 @@ export default function Home() {
 
         <section style={styles.steps} className="animate-fade-in">
           {[
-            ['1', 'Creez ou rejoignez une partie avec un code.'],
-            ['2', 'Lancez la manche et memorisez votre mot secret.'],
-            ['3', 'Donnez un indice court sans reveler le mot.'],
-            ['4', 'Votez pour demasquer les espions.'],
+            ['1', 'Créez ou rejoignez une partie avec un code.'],
+            ['2', 'Lancez la manche et mémorisez votre mot secret.'],
+            ['3', 'Donnez un indice court sans révéler le mot.'],
+            ['4', 'Votez pour démasquer les espions.'],
           ].map(([number, text]) => (
             <article key={number} className="glass-card" style={styles.step}>
               <span style={styles.stepNumber}>{number}</span>
