@@ -228,7 +228,7 @@ export default function GamePage() {
             <div>
               <h1 style={styles.title}>En attente des joueurs</h1>
               <p style={styles.description}>
-                Partagez le code de partie. Le backend demande au moins deux joueurs pour lancer.
+                Partagez le code de partie. Il faut au moins deux joueurs pour lancer.
               </p>
             </div>
             <div style={styles.waitingActions}>
